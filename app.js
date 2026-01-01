@@ -22,4 +22,10 @@ app.use(cookieParser());
 
 app.use(cors());
 
+app.use('/api', apiRouter); /* "/api" ler "apiRouter" */
+
+module.exports = app;
+
+
+
 
