@@ -24,8 +24,13 @@ app.use(cors());
 
 app.use('/api', apiRouter); /* "/api" ler "apiRouter" */
 
-module.exports = app;
+// module.exports = app; (bunu unutup kuruluma devam edersen nolur hatırla)
 
+app.listen(3000, function() {
+    console.log("---------------------------------------------------");
+    console.log(" Sunucu çalişti: http://localhost:3000/api/venues");
+    console.log("---------------------------------------------------");
+});
 
 
 
