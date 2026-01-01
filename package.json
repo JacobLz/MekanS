@@ -1,0 +1,21 @@
+{
+  "name": "mekans",
+  "version": "1.0.0",
+  "description": "study",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JacobLz/MekanS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/JacobLz/MekanS/issues"
+  },
+  "homepage": "https://github.com/JacobLz/MekanS#readme"
+}
