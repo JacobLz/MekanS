@@ -4,7 +4,7 @@
   "description": "study",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -17,5 +17,13 @@
   "bugs": {
     "url": "https://github.com/JacobLz/MekanS/issues"
   },
-  "homepage": "https://github.com/JacobLz/MekanS#readme"
+  "homepage": "https://github.com/JacobLz/MekanS#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
+    "mongoose": "^9.1.1",
+    "morgan": "^1.10.1",
+    "nodemon": "^3.1.11"
+  }
 }
