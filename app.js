@@ -4,4 +4,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 
-require('.app_api/models/dp.js');
+require('./app_api/models/db.js');
+
+
