@@ -10,5 +10,8 @@ require('./app_api/models/db');
 // rotalar burda . 
 var apiRouter = require('./app_api/routes/index')
 
+var app = express();
+
+// ayarlar 
 
 
