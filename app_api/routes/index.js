@@ -1,17 +1,16 @@
-// yönlendirmeler burada . 
-
 var express = require('express');
-var router = express.Router(); 
+var router = express.Router();
 
-// TEST ROTASI
-// '/venues' adresine GET isteği atılırsa
-router.get('/venues', function(req, res) {
-    // Ekrana JSON formatında cevap bas
-    res.status(200).json({
-        "durum": "Başarili",
-        "mesaj": "MekanS projesi çalişiyor!"
-    });
-});
+var ctrlVenues = require('../controllers/venueController.js');
 
-// Bu satır olmayınca app.js bu dosyayı okumaz dikat !!! (bu kısmada tekrar bak)
+// ROTALAR
+
+// 1. '/venues' adresine GET gelirse -> Listele
+// 2. '/venues' adresine POST gelirse -> Ekle
+router
+  .route('/venues')
+  .get(ctrlVenues.listVenues)
+  .post(ctrlVenues.addVenue);
+
+// Modülü dışarı aç 
 module.exports = router;
