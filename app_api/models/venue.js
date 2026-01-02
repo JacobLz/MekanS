@@ -1,6 +1,6 @@
-// veritabanı şablon kurllar vs . 
+// veritabanı şablon kurllar vs . (kısaca veritabanı filtresi)
 
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'); // kütüphaneleri birden fazla yerde çağırmak performansa etki etmez node.js ilk seferkini cache eder.
 
 //  Mekanın içinde yorumlar listesi olacak.
 var reviewSchema = new mongoose.Schema({
