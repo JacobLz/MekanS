@@ -4,33 +4,37 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 
-// veri tabanı bağlantısı ?
+// Veritabanı bağlantısı (Mongoose ile)
 require('./app_api/models/db');
 
-// rotalar burda . 
-var apiRouter = require('./app_api/routes/index')
+// API rotalarını yükle
+var apiRouter = require('./app_api/routes/index');
 
 var app = express();
 
-// ayarlar 
+// Middleware ayarları
+app.use(logger('dev'));                    // Gelen istekleri konsola renkli loglar
+app.use(express.json());                   
+/* JSON body'leri parse eder (js nesnesine dönüştürür) ,
+ req.body ile json verileri js objesi halinden çekerek kullanabiliriz. */
+app.use(express.urlencoded({ extended: false })); // Form verilerini parse eder
+app.use(cookieParser());                   // Cookie'leri req.cookies'a koyar
 
-app.use(logger('dev')); /* logger */
+app.use(cors());                           /* 
+Frontend'in farklı porttan erişimine izin verir (development için geniş açık)*/
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+// Tüm /api isteklerini apiRouter'a yönlendir
+app.use('/api', apiRouter);
 
-app.use(cors());
+// Uygulamayı export et (test ve production için gerekli)
+module.exports = app;
 
-app.use('/api', apiRouter); /* "/api" ler "apiRouter" */
-
-// module.exports = app; (bunu unutup kuruluma devam edersen nolur hatırla)
-
-app.listen(3000, function() {
-    console.log("---------------------------------------------------");
-    console.log(" Sunucu çalişti: http://localhost:3000/api/venues");
-    console.log("---------------------------------------------------");
-});
-
-
-
+// Sadece doğrudan node app.js ile çalıştırıldığında sunucuyu başlatmak için koşullu.
+if (require.main === module) {
+    const port = 3000;
+    app.listen(port, () => { /* function() da olabilirdi ama yerine () => yazımı daha modern ve this kullanımında daha stabilite sunar */
+        console.log("---------------------------------------------------");
+        console.log(` Sunucu çalişiyor: http://localhost:${port}/api/venues`);
+        console.log("---------------------------------------------------");
+    });
+}
