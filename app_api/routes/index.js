@@ -1,7 +1,7 @@
 // yönlendirmeler burada . 
 
 var express = require('express');
-var router = express.Router(); // Yeni bir yönlendirici oluştur
+var router = express.Router(); 
 
 // TEST ROTASI
 // '/venues' adresine GET isteği atılırsa
