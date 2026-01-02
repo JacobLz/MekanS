@@ -4,11 +4,11 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 
-// Veritabanı bağlantısı (Mongoose ile)
-require('./app_api/models/db');
+// Veritabanı bağlantısı 
+require('./app_api/models/db.js');
 
 // API rotalarını yükle
-var apiRouter = require('./app_api/routes/index');
+var apiRouter = require('./app_api/routes/index.js');
 
 var app = express();
 
