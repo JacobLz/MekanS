@@ -26,7 +26,7 @@ var addVenue = async function(req, res) {
         const venue = await Venue.create(req.body); 
         createResponse(res, 201, venue);
     } catch (error) {
-        createResponse(res, 400, {"status": "Ekleme başarısız", "error": error});
+        createResponse(res, 400, {"status": "Ekleme başarisiz", "error": error});
     }
 };
 
